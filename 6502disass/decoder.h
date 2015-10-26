@@ -1,5 +1,4 @@
-#ifdef DECODER_H
-#define DECODER_H
+#pragma once
 enum Instruction
 {
 	ADC, AND, ASL,
@@ -22,4 +21,19 @@ enum Instruction
 	TAY, TSX, TXA,
 	TXS, TYA
 };
-#endif
+
+enum AddressingMode
+{
+	Accumulator,
+	Implied,
+	Immediate,
+	Absolute,
+	ZeroPage,
+	Relative,
+	AbsoluteX,
+	AbsoluteY,
+	ZeroPageX,
+	ZeroPageY,
+	ZeroPageIndirectX, // Zero Page Indexed Indirect (zp,x)
+	ZeroPageIndirectY  // Zero Page Indirect Indexed with Y (zp), y
+};
