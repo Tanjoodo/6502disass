@@ -20,7 +20,7 @@ enum Instruction
 	STX, STY, TAX,
 	TAY, TSX, TXA,
 	TXS, TYA
-};;
+};
 
 enum AddressingMode
 {
