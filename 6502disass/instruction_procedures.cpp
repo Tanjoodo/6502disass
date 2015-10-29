@@ -17,10 +17,21 @@ void Format(AddressingMode addressingMode)
 		break;
 	case ZeroPage:
 	case ZeroPageX:
-		cout << '$' << setw(2) << setfill('0') << uppercase << hex;
+		cout << "$" << setw(2) << setfill('0') << uppercase << hex;
 		break;
 	case Absolute:
-		cout << '$' << setw(4) << setfill('0') << uppercase << hex;
+		cout << "$" << setw(4) << setfill('0') << uppercase << hex;
+		break;
+	case AbsoluteX:
+		cout << "$";
+		break;
+	case AbsoluteY:
+		cout << "$" << setw(2) << setfill('0') << uppercase << hex;
+		break;
+	case Accumulator:
+		cout << setw(1) << setfill('0') << uppercase << hex;
+	
+		
 	}
 }
 void ProcADC(AddressingMode addressingMode, int16_t operands[])
@@ -35,16 +46,51 @@ void ProcADC(AddressingMode addressingMode, int16_t operands[])
 		cout << operands[0] << ",X";
 	else if (addressingMode == Absolute)
 		cout << operands[0];
+	else if (addressingMode == AbsoluteX)
+		cout << operands[0]<<",X";
+	else if (addressingMode == AbsoluteY)
+		cout << operands[0]<<",Y";
+	//else if (addressingMode == )
 	cout << endl;
 		
 }
 
 void ProcAND(AddressingMode addressingMode, int16_t operands[])
 {
+	cout << "AND";
+		Format(addressingMode);
+	if (addressingMode == Immediate)
+		cout << operands[0];
+	else if (addressingMode == ZeroPage)
+		cout << operands[0];
+	else if (addressingMode == ZeroPageX)
+		cout << operands[0] << ",X";
+	else if (addressingMode == Absolute)
+		cout << operands[0];
+	else if (addressingMode == AbsoluteX)
+		cout << operands[0] << ",X";
+	else if (addressingMode == AbsoluteY)
+		cout << operands[0] << ",Y";
+	
+	cout << endl;
 }
 
 void ProcASL(AddressingMode addressingMode, int16_t operands[])
 {
+	cout << "ASL";
+	Format(addressingMode);
+	if (addressingMode == Accumulator)
+		cout << operands[0];
+	else if (addressingMode == ZeroPage)
+		cout << operands[0];
+	else if (addressingMode == ZeroPageIndirectX)
+		cout << operands[0];
+	else if (addressingMode == Absolute)
+		cout << operands[0];
+	else if (addressingMode == AbsoluteX)
+		cout << operands[0];
+
+
 }
 
 void ProcBCC(AddressingMode addressingMode, int16_t operands[])
@@ -61,6 +107,13 @@ void ProcBEQ(AddressingMode addressingMode, int16_t operands[])
 
 void ProcBIT(AddressingMode addressingMode, int16_t operands[])
 {
+	cout << "BIT";
+	Format(addressingMode);
+	if (addressingMode == ZeroPage)
+		cout << operands[0];
+	else if (addressingMode == Absolute)
+		cout << operands[0];
+	cout<<endl;
 }
 
 void ProcBMI(AddressingMode addressingMode, int16_t operands[])
