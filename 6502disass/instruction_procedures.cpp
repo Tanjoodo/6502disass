@@ -22,13 +22,9 @@ void Format(AddressingMode addressingMode)
 		cout << "$" << setw(2) << setfill('0') << uppercase << hex;
 		break;
 	case Absolute:
-		cout << "$" << setw(4) << setfill('0') << uppercase << hex;
-		break;
 	case AbsoluteX:
-		cout << "$";
-		break;
 	case AbsoluteY:
-		cout << "$" << setw(2) << setfill('0') << uppercase << hex;
+		cout << "$" << setw(4) << setfill('0') << uppercase << hex;
 		break;
 	case Accumulator:
 		cout << setw(1) << setfill('0') << uppercase << hex;
@@ -67,8 +63,13 @@ void ProcADC(AddressingMode addressingMode, int16_t operands[])
 
 void ProcAND(AddressingMode addressingMode, int16_t operands[])
 {
+<<<<<<< HEAD
 	cout << "AND";
 	Format(addressingMode);
+=======
+	cout << "AND ";
+		Format(addressingMode);
+>>>>>>> master
 	if (addressingMode == Immediate)
 		cout << operands[0];
 	else if (addressingMode == ZeroPage)
@@ -87,10 +88,10 @@ void ProcAND(AddressingMode addressingMode, int16_t operands[])
 
 void ProcASL(AddressingMode addressingMode, int16_t operands[])
 {
-	cout << "ASL";
+	cout << "ASL ";
 	Format(addressingMode);
 	if (addressingMode == Accumulator)
-		cout << operands[0];
+		cout << 'A';
 	else if (addressingMode == ZeroPage)
 		cout << operands[0];
 	else if (addressingMode == ZeroPageIndirectX)
@@ -99,7 +100,6 @@ void ProcASL(AddressingMode addressingMode, int16_t operands[])
 		cout << operands[0];
 	else if (addressingMode == AbsoluteX)
 		cout << operands[0];
-
 
 }
 
