@@ -63,13 +63,8 @@ void ProcADC(AddressingMode addressingMode, int16_t operands[])
 
 void ProcAND(AddressingMode addressingMode, int16_t operands[])
 {
-<<<<<<< HEAD
 	cout << "AND";
 	Format(addressingMode);
-=======
-	cout << "AND ";
-		Format(addressingMode);
->>>>>>> master
 	if (addressingMode == Immediate)
 		cout << operands[0];
 	else if (addressingMode == ZeroPage)
