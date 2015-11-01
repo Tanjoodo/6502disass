@@ -17,6 +17,8 @@ void Format(AddressingMode addressingMode)
 		break;
 	case ZeroPage:
 	case ZeroPageX:
+	case ZeroPageY:
+	case Relative:
 		cout << "$" << setw(2) << setfill('0') << uppercase << hex;
 		break;
 	case Absolute:
@@ -24,33 +26,21 @@ void Format(AddressingMode addressingMode)
 	case AbsoluteY:
 		cout << "$" << setw(4) << setfill('0') << uppercase << hex;
 		break;
+	case Accumulator:
+		cout << setw(1) << setfill('0') << uppercase << hex;
+		break;
+	case ZeroPageIndirectX:
+	case ZeroPageIndirectY:
+		cout << '(' << '$' << setw(4) << setfill('0') << uppercase << hex;
+		break;
 	}
+
+	//Anything else does not need special formatting
 }
 void ProcADC(AddressingMode addressingMode, int16_t operands[])
 {
-	cout<< "ADC ";
+	cout << "ADC ";
 	Format(addressingMode);
-	if (addressingMode == Immediate)
-		cout << operands[0];
-	else if (addressingMode == ZeroPage)
-		cout << operands[0];
-	else if (addressingMode == ZeroPageX)
-		cout << operands[0] << ",X";
-	else if (addressingMode == Absolute)
-		cout << operands[0];
-	else if (addressingMode == AbsoluteX)
-		cout << operands[0]<<",X";
-	else if (addressingMode == AbsoluteY)
-		cout << operands[0]<<",Y";
-	//else if (addressingMode == )
-	cout << endl;
-		
-}
-
-void ProcAND(AddressingMode addressingMode, int16_t operands[])
-{
-	cout << "AND ";
-		Format(addressingMode);
 	if (addressingMode == Immediate)
 		cout << operands[0];
 	else if (addressingMode == ZeroPage)
@@ -63,7 +53,36 @@ void ProcAND(AddressingMode addressingMode, int16_t operands[])
 		cout << operands[0] << ",X";
 	else if (addressingMode == AbsoluteY)
 		cout << operands[0] << ",Y";
-	
+	else if (addressingMode == ZeroPageIndirectX)
+		cout << operands[0] << ",X)";
+	else if (addressingMode == ZeroPageIndirectY)
+		cout << operands[0] << "),Y";
+	cout << endl;
+
+}
+
+void ProcAND(AddressingMode addressingMode, int16_t operands[])
+{
+<<<<<<< HEAD
+	cout << "AND";
+	Format(addressingMode);
+=======
+	cout << "AND ";
+		Format(addressingMode);
+>>>>>>> master
+	if (addressingMode == Immediate)
+		cout << operands[0];
+	else if (addressingMode == ZeroPage)
+		cout << operands[0];
+	else if (addressingMode == ZeroPageX)
+		cout << operands[0] << ",X";
+	else if (addressingMode == Absolute)
+		cout << operands[0];
+	else if (addressingMode == AbsoluteX)
+		cout << operands[0] << ",X";
+	else if (addressingMode == AbsoluteY)
+		cout << operands[0] << ",Y";
+
 	cout << endl;
 }
 
@@ -104,7 +123,7 @@ void ProcBIT(AddressingMode addressingMode, int16_t operands[])
 		cout << operands[0];
 	else if (addressingMode == Absolute)
 		cout << operands[0];
-	cout<<endl;
+	cout << endl;
 }
 
 void ProcBMI(AddressingMode addressingMode, int16_t operands[])
