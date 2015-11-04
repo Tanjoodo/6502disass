@@ -5,13 +5,6 @@
 
 int Decode(int index, uint8_t bytes[])
 {
-	uint8_t aaa, bbb, cc;
-	aaa = 0b11100000 & bytes[index];
-	aaa >>= 5;
-	bbb = 0b00011100 & bytes[index];
-	bbb >>= 2;
-	cc  = 0b00000011 & bytes[index];
-
 	Instruction instruction = DecodeInstruction(bytes[index]);
 	AddressingMode addressingMode = DecodeAddressingMode(bytes[index]);
 	
@@ -33,7 +26,6 @@ int Decode(int index, uint8_t bytes[])
 
 	Dispatch(instruction, addressingMode, index, bytes);
 	return FindInstructionLength(addressingMode);
-
 }
 
 AddressingMode DecodeAddressingMode(uint8_t instructionByte)
