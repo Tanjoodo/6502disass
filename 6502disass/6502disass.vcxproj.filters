@@ -21,6 +21,9 @@
     <ClCompile Include="instruction_procedures.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="decoder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="decoder.h">

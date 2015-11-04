@@ -142,6 +142,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="decoder.cpp" />
     <ClCompile Include="instruction_procedures.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>

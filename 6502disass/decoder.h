@@ -1,4 +1,6 @@
 #pragma once
+#include <cstdint>
+
 enum Instruction
 {
 	ADC, AND, ASL,
@@ -19,21 +21,28 @@ enum Instruction
 	SED, SEI, STA,
 	STX, STY, TAX,
 	TAY, TSX, TXA,
-	TXS, TYA
+	TXS, TYA, UnknownIns
 };
 
 enum AddressingMode
 {
-	Accumulator,
-	Implied,
+	Accumulator, 
+	Implied, 
 	Immediate,
 	Absolute,
 	ZeroPage,
-	Relative,
+	Relative, 
 	AbsoluteX,
 	AbsoluteY,
 	ZeroPageX,
 	ZeroPageY,
 	ZeroPageIndirectX, // Zero Page Indexed Indirect (zp,x)
-	ZeroPageIndirectY  // Zero Page Indirect Indexed with Y (zp), y
+	ZeroPageIndirectY,  // Zero Page Indirect Indexed with Y (zp), y
+	UnknownAM
 };
+
+int Decode(int index, uint8_t bytes[]);
+AddressingMode DecodeAddressingMode(uint8_t instructionByte);
+Instruction DecodeInstruction(uint8_t instructionByte);
+void Dispatch(Instruction instruction, AddressingMode addressingMode, int index, uint8_t bytes[]);
+int FindInstructionLength(AddressingMode addressingMode);
