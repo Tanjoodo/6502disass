@@ -15,9 +15,6 @@ int Decode(int index, uint8_t bytes[])
 	*    LDX:
 	*        ZeroPageX -> ZeroPageY
 	*        AbsoluteX -> AbsoluteY
-	*    
-	*    Branching instructions are always Relative.
-	*    
 	*/
 	if ((instruction == STX || instruction == LDX) && addressingMode == ZeroPageX)
 		addressingMode = ZeroPageY;
