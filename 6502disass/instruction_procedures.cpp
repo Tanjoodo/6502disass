@@ -67,8 +67,10 @@ void PrintOperands(AddressingMode addressingMode, uint8_t operands[])
 	case AbsoluteY:
 		operand = (uint16_t)operands[1] << 8 | operands[0];
 		cout << operand << ",Y";
+		break;
 	case ZeroPageIndirectX:
 		cout << (int)operands[0] << ",X)";
+		break;
 	case ZeroPageIndirectY:
 		cout << (int)operands[0] << "),Y";
 		break;
