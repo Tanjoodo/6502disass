@@ -300,171 +300,227 @@ void Dispatch(Instruction instruction, AddressingMode addressingMode, int index,
 	{
 	case ADC:
 		ProcADC(addressingMode, operands);
+		break;
 
 	case AND:
 		ProcAND(addressingMode, operands);
+		break;
 
 	case ASL:
 		ProcASL(addressingMode, operands);
+		break;
 
 	case BCC:
 		ProcBCC(addressingMode, operands);
+		break;
 
 	case BCS:
 		ProcBCS(addressingMode, operands);
+		break;
 
 	case BEQ:
 		ProcBEQ(addressingMode, operands);
+		break;
 
 	case BIT:
 		ProcBIT(addressingMode, operands);
+		break;
 
 	case BMI:
 		ProcBMI(addressingMode, operands);
+		break;
 
 	case BNE:
 		ProcBNE(addressingMode, operands);
+		break;
 
 	case BPL:
 		ProcBPL(addressingMode, operands);
+		break;
 
 	case BRK:
 		ProcBRK(addressingMode, operands);
+		break;
 
 	case BVC:
 		ProcBVC(addressingMode, operands);
+		break;
 
 	case BVS:
 		ProcBVS(addressingMode, operands);
+		break;
 
 	case CLC:
 		ProcCLC(addressingMode, operands);
+		break;
 
 	case CLD:
 		ProcCLD(addressingMode, operands);
+		break;
 
 	case CLI:
 		ProcCLI(addressingMode, operands);
+		break;
 
 	case CLV:
 		ProcCLV(addressingMode, operands);
+		break;
 
 	case CMP:
 		ProcCMP(addressingMode, operands);
+		break;
 
 	case CPX:
 		ProcCPX(addressingMode, operands);
+		break;
 
 	case CPY:
 		ProcCPY(addressingMode, operands);
+		break;
 
 	case DEC:
 		ProcDEC(addressingMode, operands);
+		break;
 
 	case DEX:
 		ProcDEX(addressingMode, operands);
+		break;
 
 	case DEY:
 		ProcDEY(addressingMode, operands);
+		break;
 
 	case EOR:
 		ProcEOR(addressingMode, operands);
+		break;
 
 	case INC:
 		ProcINC(addressingMode, operands);
+		break;
 
 	case INX:
 		ProcINX(addressingMode, operands);
+		break;
 
 	case INY:
 		ProcINY(addressingMode, operands);
+		break;
 
 	case JMP:
 		ProcJMP(addressingMode, operands);
+		break;
 
 	case JSR:
 		ProcJSR(addressingMode, operands);
+		break;
 
 	case LDA:
 		ProcLDA(addressingMode, operands);
+		break;
 
 	case LDX:
 		ProcLDX(addressingMode, operands);
+		break;
 
 	case LDY:
 		ProcLDY(addressingMode, operands);
+		break;
 
 	case LSR:
 		ProcLSR(addressingMode, operands);
+		break;
 
 	case NOP:
 		ProcNOP(addressingMode, operands);
+		break;
 
 	case ORA:
 		ProcORA(addressingMode, operands);
+		break;
 
 	case PHA:
 		ProcPHA(addressingMode, operands);
+		break;
 
 	case PHP:
 		ProcPHP(addressingMode, operands);
+		break;
 
 	case PLA:
 		ProcPLA(addressingMode, operands);
+		break;
 
 	case PLP:
 		ProcPLP(addressingMode, operands);
+		break;
 
 	case ROL:
 		ProcROL(addressingMode, operands);
+		break;
 
 	case ROR:
 		ProcROR(addressingMode, operands);
+		break;
 
 	case RTI:
 		ProcRTI(addressingMode, operands);
+		break;
 
 	case RTS:
 		ProcRTS(addressingMode, operands);
+		break;
 
 	case SBC:
 		ProcSBC(addressingMode, operands);
+		break;
 
 	case SEC:
 		ProcSEC(addressingMode, operands);
+		break;
 
 	case SED:
 		ProcSED(addressingMode, operands);
+		break;
 
 	case SEI:
 		ProcSEI(addressingMode, operands);
+		break;
 
 	case STA:
 		ProcSTA(addressingMode, operands);
+		break;
 
 	case STX:
 		ProcSTX(addressingMode, operands);
+		break;
 
 	case STY:
 		ProcSTY(addressingMode, operands);
+		break;
 
 	case TAX:
 		ProcTAX(addressingMode, operands);
+		break;
 
 	case TAY:
 		ProcTAY(addressingMode, operands);
+		break;
 
 	case TSX:
 		ProcTSX(addressingMode, operands);
+		break;
 
 	case TXA:
 		ProcTXA(addressingMode, operands);
+		break;
 
 	case TXS:
 		ProcTXS(addressingMode, operands);
+		break;
 
 	case TYA:
 		ProcTYA(addressingMode, operands);
+		break;
 	}
 }
 
