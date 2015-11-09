@@ -13,7 +13,10 @@ int main(int argc, char **argv)
 	int index = 0;
 	size_t size = 0;
 	if (argc < 2)
+	{
+		cout << "Please enter a file name" << endl;
 		return 1;
+	}
 	else
 	{
 		ifstream inFile;
@@ -30,6 +33,10 @@ int main(int argc, char **argv)
 			bytes8 = new uint8_t[size];
 			std::copy(bytes, bytes + size, bytes8);
 			delete[] bytes;
+		}
+		else
+		{
+			cout << "File input failed" << endl;
 		}
 	}
 

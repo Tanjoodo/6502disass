@@ -27,6 +27,48 @@ int Decode(int index, uint8_t bytes[])
 
 AddressingMode DecodeAddressingMode(uint8_t instructionByte)
 {
+	Instruction instruction = DecodeInstruction(instructionByte);
+	// Following instructions are always the same addressing mode.
+	switch (instruction)
+	{
+	case CLC:
+	case CLD:
+	case CLI:
+	case CLV:
+	case DEX:
+	case DEY:
+	case INX:
+	case INY:
+	case NOP:
+	case PHA:
+	case PHP:
+	case PLA:
+	case PLP:
+	case RTI:
+	case RTS:
+	case SEC:
+	case SEI:
+	case TAX:
+	case TAY:
+	case TSX:
+	case TXA:
+	case TXS:
+	case TYA:
+		return Implied;
+
+	case BCC:
+	case BCS:
+	case BEQ:
+	case BMI:
+	case BNE:
+	case BPL:
+	case BVC:
+		return Relative;
+
+	case JSR:
+		return Absolute;
+	}
+
 	uint8_t aaa, bbb, cc;
 	aaa = 0b11100000 & instructionByte;
 	aaa >>= 5;
@@ -56,9 +98,9 @@ AddressingMode DecodeAddressingMode(uint8_t instructionByte)
 		case 0b101:
 			return ZeroPageX;
 		case 0b110:
-			return AbsoluteX;
-		case 0b111:
 			return AbsoluteY;
+		case 0b111:
+			return AbsoluteX;
 		}
 	   /*
 	    * Exceptions:
@@ -99,46 +141,6 @@ AddressingMode DecodeAddressingMode(uint8_t instructionByte)
 			return AbsoluteX;
 		}
 	}
-	
-	Instruction instruction = DecodeInstruction(instructionByte);
-	// Following instructions are always the same addressing mode.
-	switch (instruction)
-	{
-	case CLC:
-	case CLD:
-	case CLI:
-	case CLV:
-	case DEX:
-	case DEY:
-	case INX:
-	case INY:
-	case NOP:
-	case PHA:
-	case PHP:
-	case PLA:
-	case PLP:
-	case RTI:
-	case RTS:
-	case SEC:
-	case SEI:
-	case TAX:
-	case TAY:
-	case TSX:
-	case TXA:
-	case TXS:
-	case TYA:
-		return Implied;
-
-	case BCC:
-	case BCS:
-	case BEQ:
-	case BMI:
-	case BNE:
-	case BPL:
-	case BVC:
-		return Relative;
-	}
-
 	return UnknownAM;
 }
 
